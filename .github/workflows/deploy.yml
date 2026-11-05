@@ -22,9 +22,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm ci --legacy-peer-deps'
+          cache: 'npm'
 
       - name: Install Dependencies
+        env:
+          npm_config_legacy_peer_deps: true
         run: npm ci
 
       - name: Build appication
